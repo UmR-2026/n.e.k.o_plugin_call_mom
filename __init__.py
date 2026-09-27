@@ -278,7 +278,8 @@ class CallMomPlugin(NekoPluginBase):
 
     # ── 巡检 ──────────────────────────────────────────────────────────
 
-    @timer_interval(id="rule_watchdog", seconds=_TICK_SECONDS, auto_start=True)
+    # 巡检步长必须以内联字面量声明（发布检查要求 seconds > 0 的字面量）
+    @timer_interval(id="rule_watchdog", seconds=60, auto_start=True)
     async def rule_watchdog(self, **_):
         if not self._ready:
             return Ok({"action": "skip"})
