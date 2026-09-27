@@ -179,7 +179,6 @@ def main() -> None:
         packaged = tomllib.loads(archive.read(f"payload/plugins/{plugin_id}/plugin.toml").decode("utf-8"))["plugin"]
         assert packaged["id"] == plugin_id, "包内 plugin.toml id 不一致"
         assert packaged["entry"] == entry, "包内 entry 改写失败"
-        inner = staging / "payload"
         # compute_archive_payload_hash 的规范路径不含 "payload/" 前缀
         payload_entries = sorted(
             (

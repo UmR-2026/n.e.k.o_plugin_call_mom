@@ -40,14 +40,14 @@ import urllib.request
 from typing import Any, Dict, Optional
 
 from plugin.sdk.plugin import (
+    Err,
     NekoPluginBase,
+    Ok,
+    SdkError,
+    lifecycle,
     neko_plugin,
     plugin_entry,
-    lifecycle,
     timer_interval,
-    Ok,
-    Err,
-    SdkError,
 )
 
 _MAX_PREFIX_LEN = 12
